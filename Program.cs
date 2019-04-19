@@ -25,22 +25,5 @@ namespace Kontur.Courses.Git
 				Console.WriteLine("> " + result);
 			}
 		}
-
-		private static string[] SplitInput(string line)
-		{
-			if (line.Length == 0) return new string[0];
-			List<string> res = new List<string> {""};
-			bool isDigit = char.IsDigit(line[0]);
-			foreach (var ch in line)
-			{
-				if (char.IsDigit(ch) != isDigit)
-				{
-					res.Add("");
-					isDigit = !isDigit;
-				}
-				res[res.Count - 1] += ch;
-			}
-			return res.Select(s => s.Trim()).ToArray();
-		}
 	}
 }
